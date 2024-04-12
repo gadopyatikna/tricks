@@ -82,6 +82,7 @@ namespace queue.trees
                 {
                     RotateLeft(node.Parent);
                 }
+                return;
             }
 
             // my parent is left child cases 
