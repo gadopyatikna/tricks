@@ -47,6 +47,40 @@ namespace queue.trees
                     Add(curNode, parent.Left);
         }
 
+        private void ValidateRedBlacknessPreserved(Node node)
+        {
+            // assume added node is always red
+            if (node.Parent.Color == Color.Black)
+                return;
+
+            // my parent is left child cases 
+            if (node.Parent.Parent.Right.Color == Color.Red)
+            {
+                node.Parent.Parent.SwitchColor(); // gp
+                node.Parent.SwitchColor(); // p
+                node.Parent.Parent.Right.SwitchColor(); // u
+                return;
+            }
+
+            if (node.Parent.Parent.Right.Color == Color.Black)
+            {
+                // line case, z left child of p
+                if (node.Data == node.Parent.Left.Data)
+                {
+                    RotateRight(node.Parent);
+                }
+                else // triangle case, z right child of p
+                {
+                    var p = node.Parent;
+                    var gp = node.Parent.Parent;
+                    RotateLeft(node.Parent.Parent);
+
+                    p.SwitchColor();
+                    gp.SwitchColor();
+                }
+            }
+        }
+
         private void RotateLeft(Node x)
         {
             var (xParent_, x_, isRight) = Node.BreakMutualLinksWithParent(x);

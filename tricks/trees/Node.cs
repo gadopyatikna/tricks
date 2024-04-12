@@ -4,21 +4,38 @@ namespace queue.trees
 {
     public enum Color : byte
     {
-        Red,
-        Black
+        Red = 0,
+        Black = 0b_11111111
     }
 
-    class Node
+    class NodeBase
+    {
+        public readonly bool IsLeaf;
+
+        public NodeBase(bool isLeaf)
+        {
+            IsLeaf = isLeaf;
+        }
+    }
+
+    class LeafNode : NodeBase
+    {
+        public LeafNode()
+            : base(true)
+        {}
+    }
+
+    class Node : NodeBase
     {
         public int Index;
         public Node Right { get; set; }
         public Node Left { get; set; }
         public Node Parent { get; set; }
         public Color Color { get; set; } = Color.Red;
-
         public readonly int Data;
 
         public Node(Node right, Node left, int data)
+            : base(false)
         {
             Right = right;
             Left = left;
@@ -30,6 +47,8 @@ namespace queue.trees
         {
             Color = color;
         }
+
+        public void SwitchColor() => Color = ~Color;
 
         public static void SetRight(Node node, Node right)
         {
@@ -44,7 +63,7 @@ namespace queue.trees
         }
 
         public static (Node parent, Node current, bool isRight)
-    BreakMutualLinksWithParent(Node node)
+            BreakMutualLinksWithParent(Node node)
         {
             var parent = node.Parent;
             var isRight = true;
