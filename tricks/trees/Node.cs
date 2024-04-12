@@ -8,45 +8,41 @@ namespace queue.trees
         Black = 0b_11111111
     }
 
-    class NodeBase
+    class LeafNode : Node
     {
-        public readonly bool IsLeaf;
-
-        public NodeBase(bool isLeaf)
-        {
-            IsLeaf = isLeaf;
-        }
-    }
-
-    class LeafNode : NodeBase
-    {
-        public LeafNode()
-            : base(true)
+        public LeafNode(Node parent)
+            : base(parent, null, null, Color.Black, true, -1)
         {}
     }
 
-    class Node : NodeBase
+    class Node
     {
-        public int Index;
         public Node Right { get; set; }
         public Node Left { get; set; }
+
         public Node Parent { get; set; }
-        public Color Color { get; set; } = Color.Red;
+
+        public Color Color { get; set; }
+
+        public readonly bool IsLeaf;
+
         public readonly int Data;
 
-        public Node(Node right, Node left, int data)
-            : base(false)
+        public Node(Node parent, Node right, Node left, Color color, bool isLeaf, int data)
         {
+            Parent = parent;
             Right = right;
             Left = left;
+            Color = color;
+            IsLeaf = isLeaf;
             Data = data;
         }
 
-        public Node(Node right, Node left, Color color, int data)
-            : this(right, left, data)
-        {
-            Color = color;
-        }
+        //public Node(Node right, Node left, Color color, int data)
+        //    : this(right, left, data)
+        //{
+        //    Color = color;
+        //}
 
         public void SwitchColor() => Color = ~Color;
 

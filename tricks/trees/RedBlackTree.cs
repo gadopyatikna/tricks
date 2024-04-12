@@ -19,17 +19,17 @@ namespace queue.trees
         {
             if (_root == null)
             {
-                _root = new Node(null, null, Color.Black, data);
+                _root = new Node(null, new LeafNode(_root), new LeafNode(_root), Color.Black, false, data);
                 return;
             }
 
-            Add(new Node(null, null, data), _root);
+            Add(new Node(null, new LeafNode(_root), new LeafNode(_root), Color.Red, false, data), _root);
         }
 
         private void Add(Node curNode, Node parent)
         {
             if (parent.Data < curNode.Data)
-                if (parent.Right == null)
+                if (parent.Right.IsLeaf)
                 {
                     Node.SetRight(parent, curNode);
                     // check
@@ -38,7 +38,7 @@ namespace queue.trees
                     Add(curNode, parent.Right);
 
             else
-                if (parent.Left == null)
+                if (parent.Left.IsLeaf)
                 {
                     Node.SetLeft(parent, curNode);
                     // check
