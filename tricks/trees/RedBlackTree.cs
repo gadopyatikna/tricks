@@ -99,7 +99,8 @@ namespace queue.trees
                     Add(curNode, parent.Left);
         }
 
-        private (Node parent, Node current, bool isRight) BreakMutualLinksWithParent(Node node)
+        private (Node parent, Node current, bool isRight)
+            BreakMutualLinksWithParent(Node node)
         {
             var parent = node.Parent;
             var isRight = true;
