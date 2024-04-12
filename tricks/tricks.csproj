@@ -41,6 +41,7 @@
     <Compile Include="trees\RedBlackTree.cs" />
     <Compile Include="trees\Program.cs" />
     <Compile Include="trees\Node.cs" />
+    <Compile Include="trees\NodeBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="parallel\" />

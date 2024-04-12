@@ -8,13 +8,6 @@ namespace queue.trees
         Black = 0b_11111111
     }
 
-    class LeafNode : Node
-    {
-        public LeafNode(Node parent)
-            : base(parent, null, null, Color.Black, true, -1)
-        {}
-    }
-
     class Node
     {
         public Node Right { get; set; }
@@ -28,21 +21,11 @@ namespace queue.trees
 
         public readonly int Data;
 
-        public Node(Node parent, Node right, Node left, Color color, bool isLeaf, int data)
+        public Node(bool isLeaf, int data)
         {
-            Parent = parent;
-            Right = right;
-            Left = left;
-            Color = color;
             IsLeaf = isLeaf;
             Data = data;
         }
-
-        //public Node(Node right, Node left, Color color, int data)
-        //    : this(right, left, data)
-        //{
-        //    Color = color;
-        //}
 
         public void SwitchColor() => Color = ~Color;
 
@@ -63,12 +46,12 @@ namespace queue.trees
         {
             var parent = node.Parent;
             var isRight = true;
-            if (node.Parent.Right != null && node.Data == node.Parent.Right.Data)
+            if (node.Data == node.Parent.Right.Data)
             {
                 node.Parent.Right = null;
                 node.Parent = null;
             }
-            else if (node.Parent.Left != null && node.Data == node.Parent.Left.Data)
+            else if (node.Data == node.Parent.Left.Data)
             {
                 node.Parent.Left = null;
                 node.Parent = null;

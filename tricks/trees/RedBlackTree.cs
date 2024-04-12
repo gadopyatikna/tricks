@@ -19,11 +19,24 @@ namespace queue.trees
         {
             if (_root == null)
             {
-                _root = new Node(null, new LeafNode(_root), new LeafNode(_root), Color.Black, false, data);
+                _root = new Node(false, data)
+                {
+                    Color = Color.Black
+                };
+                _root.Left = NodeBuilder.GetLeafNode(_root);
+                _root.Right = NodeBuilder.GetLeafNode(_root);
+
                 return;
             }
 
-            Add(new Node(null, new LeafNode(_root), new LeafNode(_root), Color.Red, false, data), _root);
+            var newNode = new Node(false, data)
+            {
+                Color = Color.Red
+            };
+            newNode.Left = NodeBuilder.GetLeafNode(newNode);
+            newNode.Right = NodeBuilder.GetLeafNode(newNode);
+
+            Add(newNode, _root);
         }
 
         private void Add(Node curNode, Node parent)
@@ -32,7 +45,7 @@ namespace queue.trees
                 if (parent.Right.IsLeaf)
                 {
                     Node.SetRight(parent, curNode);
-                    // check
+                    ValidateRedBlacknessPreserved(curNode);
                 }
                 else
                     Add(curNode, parent.Right);
@@ -41,7 +54,7 @@ namespace queue.trees
                 if (parent.Left.IsLeaf)
                 {
                     Node.SetLeft(parent, curNode);
-                    // check
+                    ValidateRedBlacknessPreserved(curNode);
                 }
                 else
                     Add(curNode, parent.Left);
@@ -53,6 +66,24 @@ namespace queue.trees
             if (node.Parent.Color == Color.Black)
                 return;
 
+            if (node.Parent.Parent.Right.Color == Color.Black)
+            {
+                // line case, z left child of p
+                if (node.Data == node.Parent.Left.Data)
+                {
+                    var p = node.Parent;
+                    var gp = node.Parent.Parent;
+                    RotateRight(node.Parent.Parent);
+
+                    p.SwitchColor();
+                    gp.SwitchColor();
+                }
+                else // triangle case, z right child of p
+                {
+                    RotateLeft(node.Parent);
+                }
+            }
+
             // my parent is left child cases 
             if (node.Parent.Parent.Right.Color == Color.Red)
             {
@@ -60,24 +91,6 @@ namespace queue.trees
                 node.Parent.SwitchColor(); // p
                 node.Parent.Parent.Right.SwitchColor(); // u
                 return;
-            }
-
-            if (node.Parent.Parent.Right.Color == Color.Black)
-            {
-                // line case, z left child of p
-                if (node.Data == node.Parent.Left.Data)
-                {
-                    RotateRight(node.Parent);
-                }
-                else // triangle case, z right child of p
-                {
-                    var p = node.Parent;
-                    var gp = node.Parent.Parent;
-                    RotateLeft(node.Parent.Parent);
-
-                    p.SwitchColor();
-                    gp.SwitchColor();
-                }
             }
         }
 
@@ -127,7 +140,7 @@ namespace queue.trees
 
         private void Flatten(Node n, List<int> list)
         {
-            if (n == null)
+            if (n.IsLeaf)
                 return;
 
             list.Add(n.Data);
