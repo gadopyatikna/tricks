@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.25
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tricks", "tricks\tricks.csproj", "{924A6904-6EB4-42B5-B81C-797B529C91BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wreckage", "Wreckage\Wreckage.csproj", "{2B32907B-F93A-4A20-82D6-BF377150A62E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|anycpu = Debug|anycpu
+		Release|anycpu = Release|anycpu
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Debug|anycpu.Build.0 = Debug|anycpu
+		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Release|anycpu.ActiveCfg = Release|anycpu
+		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Release|anycpu.Build.0 = Release|anycpu
+		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Debug|anycpu.Build.0 = Debug|anycpu
+		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Release|anycpu.ActiveCfg = Release|anycpu
+		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Release|anycpu.Build.0 = Release|anycpu
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF6259D2-40F3-4C45-A4E3-5FAD63198078}
+	EndGlobalSection
+EndGlobal

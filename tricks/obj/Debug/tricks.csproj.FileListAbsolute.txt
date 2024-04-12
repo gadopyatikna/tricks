@@ -1,0 +1,10 @@
+/Users/dunno/Projects/queue/queue/obj/Debug/tricks.csproj.AssemblyReference.cache
+/Users/dunno/Projects/queue/queue/obj/Debug/tricks.csproj.CoreCompileInputs.cache
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.exe
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.pdb
+/Users/dunno/Projects/tricks/tricks/bin/Debug/queue.exe
+/Users/dunno/Projects/tricks/tricks/bin/Debug/queue.pdb
+/Users/dunno/Projects/tricks/tricks/obj/Debug/tricks.csproj.AssemblyReference.cache
+/Users/dunno/Projects/tricks/tricks/obj/Debug/tricks.csproj.CoreCompileInputs.cache
+/Users/dunno/Projects/tricks/tricks/obj/Debug/queue.exe
+/Users/dunno/Projects/tricks/tricks/obj/Debug/queue.pdb

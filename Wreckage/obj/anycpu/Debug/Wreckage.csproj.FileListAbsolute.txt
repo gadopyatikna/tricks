@@ -1,0 +1,6 @@
+/Users/dunno/Projects/tricks/Wreckage/bin/Debug/Wreckage.exe
+/Users/dunno/Projects/tricks/Wreckage/bin/Debug/Wreckage.pdb
+/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Debug/Wreckage.csproj.AssemblyReference.cache
+/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Debug/Wreckage.csproj.CoreCompileInputs.cache
+/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Debug/Wreckage.exe
+/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Debug/Wreckage.pdb

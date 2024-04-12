@@ -1,0 +1,6 @@
+/Users/dunno/Projects/queue/queue/bin/Debug/queue.exe
+/Users/dunno/Projects/queue/queue/bin/Debug/queue.pdb
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.csproj.AssemblyReference.cache
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.csproj.CoreCompileInputs.cache
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.exe
+/Users/dunno/Projects/queue/queue/obj/Debug/queue.pdb
