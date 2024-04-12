@@ -41,21 +41,6 @@ namespace queue.trees
         }
     }
 
-    public static class Helper
-    {
-        public static void SetRight(Node node, Node right)
-        {
-            node.Right = right;
-            right.Parent = node;
-        }
-
-        public static void SetLeft(Node node, Node left)
-        {
-            node.Left = left;
-            left.Parent = node;
-        }
-    }
-
     public class RedBlackTree
     {
         public Node _root;
@@ -98,7 +83,7 @@ namespace queue.trees
             if (parent.Data < curNode.Data)
                 if (parent.Right == null)
                 {
-                    Helper.SetRight(parent, curNode);
+                    parent.Right = curNode;
                     // check
                 }
                 else
@@ -107,7 +92,7 @@ namespace queue.trees
             else
                 if (parent.Left == null)
                 {
-                    Helper.SetLeft(parent, curNode);
+                    parent.Left = curNode;
                     // check
                 }
                 else
@@ -119,19 +104,17 @@ namespace queue.trees
         {
             var parent = node.Parent;
             var isRight = true;
-            if (node.Parent.Right != null && node.Data == node.Parent.Right.Data)
+            if (node.Data == node.Parent.Right.Data)
             {
                 node.Parent.Right = null;
                 node.Parent = null;
             }
-            else if (node.Parent.Left != null && node.Data == node.Parent.Left.Data)
+            else
             {
                 node.Parent.Left = null;
                 node.Parent = null;
                 isRight = false;
             }
-            else
-                throw new Exception("Cannot roatate with both children null");
 
             return (parent, node, isRight);
         }
@@ -141,18 +124,14 @@ namespace queue.trees
             if (x == null || xParent == null)
                 throw new ArgumentNullException();
 
-            // 1
-            var (xParent_, x_, isRight) = BreakMutualLinksWithParent(x);
-            var (yParent_, y_, _) = BreakMutualLinksWithParent(x_.Right);
-            var (yLeftParent_, yLeft_, _) = BreakMutualLinksWithParent(y_.Left);
+            var y = x.Right;
+            x.Right = y.Left;
+            y.Left = x;
 
-            Helper.SetRight(x_, yLeft_);
-            Helper.SetLeft(y_, x_);
-
-            if (isRight)
-                Helper.SetRight(xParent_, y_);
+            if (xParent.Left.Data == x.Data)
+                xParent.Left = y;
             else
-                Helper.SetLeft(xParent_, y_);
+                xParent.Right = y;
         }
 
         public void RotateRight(Node x, Node xParent)
