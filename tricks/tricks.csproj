@@ -40,7 +40,7 @@
     <Compile Include="lock\MyLock.cs" />
     <Compile Include="trees\RedBlackTree.cs" />
     <Compile Include="trees\Program.cs" />
-    <Compile Include="trees\Helper.cs" />
+    <Compile Include="trees\Node.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="parallel\" />

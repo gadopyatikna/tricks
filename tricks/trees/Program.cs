@@ -17,9 +17,7 @@ namespace queue.trees
                 rb.Add(item);
 
             rb.Print();
-
-            rb.RotateLeft(rb._root.Left, rb._root);
-            rb.RotateRight(rb._root.Left, rb._root);
+            rb.Test();
             rb.Print();
         }
     }
