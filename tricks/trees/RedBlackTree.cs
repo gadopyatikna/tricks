@@ -66,7 +66,10 @@ namespace queue.trees
                 && node.Parent.Color == Color.Red)
             {
                 if (node.Parent.Data == _root.Data)
+                {
                     _root.Color = Color.Black;
+                    return;
+                }
 
                 // my parent is left child cases
                 if (node.Parent.Data == node.Parent.Parent.Left.Data)
@@ -85,12 +88,12 @@ namespace queue.trees
                         // line case, z left child of p
                         if (node.Data == node.Parent.Left.Data)
                         {
-                            RotateRight(node.Parent.Parent);
-
                             node.Parent.Color = Color.Black; // p was red
                             node.Parent.Parent.Color = Color.Red; // gp was black
 
-                            node = node.Parent;
+                            RotateRight(node.Parent.Parent);
+
+                            node = node.Parent.Parent;
                         }
                         else // triangle case, z right child of p
                         {
