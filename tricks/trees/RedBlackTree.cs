@@ -62,36 +62,42 @@ namespace queue.trees
 
         private void ValidateRedBlacknessPreserved(Node node)
         {
-            // assume added node is always red
-            if (node.Parent.Color == Color.Black)
-                return;
-
-            if (node.Parent.Parent.Right.Color == Color.Black)
+            while (node.Parent != null // if we are red root, we re fine with that cause we have no parents
+                && node.Parent.Color == Color.Red)
             {
-                // line case, z left child of p
-                if (node.Data == node.Parent.Left.Data)
-                {
-                    var p = node.Parent;
-                    var gp = node.Parent.Parent;
-                    RotateRight(node.Parent.Parent);
+                if (node.Parent.Data == _root.Data)
+                    _root.Color = Color.Black;
 
-                    p.SwitchColor();
-                    gp.SwitchColor();
-                }
-                else // triangle case, z right child of p
+                // my parent is left child cases
+                if (node.Parent.Data == node.Parent.Parent.Left.Data)
                 {
-                    RotateLeft(node.Parent);
-                }
-                return;
-            }
+                    if (node.Parent.Parent.Right.Color == Color.Red)
+                    {
+                        node.Parent.Color = Color.Black; // p was Red
+                        node.Parent.Parent.Color = Color.Red; // gp was Black
+                        node.Parent.Parent.Right.Color = Color.Black; // u was Red
 
-            // my parent is left child cases 
-            if (node.Parent.Parent.Right.Color == Color.Red)
-            {
-                node.Parent.Parent.SwitchColor(); // gp
-                node.Parent.SwitchColor(); // p
-                node.Parent.Parent.Right.SwitchColor(); // u
-                return;
+                        node = node.Parent.Parent; // we recolored GP to Red, let's check he is ok
+                    }
+
+                    else //if (node.Parent.Parent.Right.Color == Color.Black)
+                    {
+                        // line case, z left child of p
+                        if (node.Data == node.Parent.Left.Data)
+                        {
+                            RotateRight(node.Parent.Parent);
+
+                            node.Parent.Color = Color.Black; // p was red
+                            node.Parent.Parent.Color = Color.Red; // gp was black
+
+                            node = node.Parent;
+                        }
+                        else // triangle case, z right child of p
+                        {
+                            RotateLeft(node.Parent);
+                        }
+                    }
+                }
             }
         }
 
