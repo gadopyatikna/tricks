@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Wreckage
+namespace locks
 {
     class Test
     {

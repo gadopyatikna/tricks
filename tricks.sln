@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.810.25
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tricks", "tricks\tricks.csproj", "{924A6904-6EB4-42B5-B81C-797B529C91BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "trees", "trees\trees.csproj", "{25961366-6750-437F-BF48-75F95A2CD5D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wreckage", "Wreckage\Wreckage.csproj", "{2B32907B-F93A-4A20-82D6-BF377150A62E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pcqueue", "pcqueue\pcqueue.csproj", "{4554EB4E-6A9A-47E3-AB31-1A5CD12539DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asyncawait", "asyncawait\asyncawait.csproj", "{A61360EE-772B-4604-BDEF-7F8E51831456}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sortings", "sortings\sortings.csproj", "{34A1F597-95E8-44F7-AC3B-F4B233A1E08D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "heaps", "heaps\heaps.csproj", "{FC576807-E188-4E49-A5EC-FC25A71F55D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "locks", "locks\locks.csproj", "{0F7CED13-214A-4614-A8E8-FCC31EB92326}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +21,30 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Debug|anycpu.Build.0 = Debug|anycpu
-		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Release|anycpu.ActiveCfg = Release|anycpu
-		{924A6904-6EB4-42B5-B81C-797B529C91BF}.Release|anycpu.Build.0 = Release|anycpu
-		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Debug|anycpu.Build.0 = Debug|anycpu
-		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Release|anycpu.ActiveCfg = Release|anycpu
-		{2B32907B-F93A-4A20-82D6-BF377150A62E}.Release|anycpu.Build.0 = Release|anycpu
+		{25961366-6750-437F-BF48-75F95A2CD5D9}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{25961366-6750-437F-BF48-75F95A2CD5D9}.Debug|anycpu.Build.0 = Debug|anycpu
+		{25961366-6750-437F-BF48-75F95A2CD5D9}.Release|anycpu.ActiveCfg = Release|anycpu
+		{25961366-6750-437F-BF48-75F95A2CD5D9}.Release|anycpu.Build.0 = Release|anycpu
+		{4554EB4E-6A9A-47E3-AB31-1A5CD12539DA}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{4554EB4E-6A9A-47E3-AB31-1A5CD12539DA}.Debug|anycpu.Build.0 = Debug|anycpu
+		{4554EB4E-6A9A-47E3-AB31-1A5CD12539DA}.Release|anycpu.ActiveCfg = Release|anycpu
+		{4554EB4E-6A9A-47E3-AB31-1A5CD12539DA}.Release|anycpu.Build.0 = Release|anycpu
+		{A61360EE-772B-4604-BDEF-7F8E51831456}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{A61360EE-772B-4604-BDEF-7F8E51831456}.Debug|anycpu.Build.0 = Debug|anycpu
+		{A61360EE-772B-4604-BDEF-7F8E51831456}.Release|anycpu.ActiveCfg = Release|anycpu
+		{A61360EE-772B-4604-BDEF-7F8E51831456}.Release|anycpu.Build.0 = Release|anycpu
+		{34A1F597-95E8-44F7-AC3B-F4B233A1E08D}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{34A1F597-95E8-44F7-AC3B-F4B233A1E08D}.Debug|anycpu.Build.0 = Debug|anycpu
+		{34A1F597-95E8-44F7-AC3B-F4B233A1E08D}.Release|anycpu.ActiveCfg = Release|anycpu
+		{34A1F597-95E8-44F7-AC3B-F4B233A1E08D}.Release|anycpu.Build.0 = Release|anycpu
+		{FC576807-E188-4E49-A5EC-FC25A71F55D1}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{FC576807-E188-4E49-A5EC-FC25A71F55D1}.Debug|anycpu.Build.0 = Debug|anycpu
+		{FC576807-E188-4E49-A5EC-FC25A71F55D1}.Release|anycpu.ActiveCfg = Release|anycpu
+		{FC576807-E188-4E49-A5EC-FC25A71F55D1}.Release|anycpu.Build.0 = Release|anycpu
+		{0F7CED13-214A-4614-A8E8-FCC31EB92326}.Debug|anycpu.ActiveCfg = Debug|anycpu
+		{0F7CED13-214A-4614-A8E8-FCC31EB92326}.Debug|anycpu.Build.0 = Debug|anycpu
+		{0F7CED13-214A-4614-A8E8-FCC31EB92326}.Release|anycpu.ActiveCfg = Release|anycpu
+		{0F7CED13-214A-4614-A8E8-FCC31EB92326}.Release|anycpu.Build.0 = Release|anycpu
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
