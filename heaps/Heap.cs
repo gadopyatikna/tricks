@@ -1,48 +1,55 @@
 ﻿using System;
 
-namespace queue.heaps
+namespace heaps
 {
     public class Heap
     {
-        private int[] _data;
-        private int _count = 0;
+        public int[] _data;
+        private int _count => _data.Length;
 
         private int _topIdx = 1;
 
-        public Heap()
+        public Heap(int[] data)
         {
-            _data = new int[100];
+            _data = data; // new int[100];
         }
 
-        public void Insert(int newData)
+        //  needs testing 
+        //public void Insert(int newData)
+        //{
+        //    if (++_count >= _data.Length)
+        //        Resize();
+
+        //    var currentMax = _data[_topIdx];
+        //    _data[_count] = currentMax;
+        //    _data[_topIdx] = newData;
+
+
+        //    // greater than both children
+        //    // and smaller than parent
+        //    if (IsOrderPreserved(_topIdx))
+        //        return; // all good
+
+        //    MaxHeapify(_topIdx);
+        //}
+
+        public void BuildMaxHeap()
         {
-            if (++_count >= _data.Length)
-                Resize();
-
-            var currentMax = _data[_topIdx];
-            _data[_count] = currentMax;
-            _data[_topIdx] = newData;
-
-
-            // greater than both children
-            // and smaller than parent
-            if (IsOrderPreserved(_topIdx))
-                return; // all good
-
-            MaxHeapify(_topIdx);
+            for (int i = _count - 1; i > 0; i--)
+                MaxHeapify(i);
         }
 
-        private void MaxHeapify(int idx)
+        public void MaxHeapify(int idx)
         {
             var l = GetLeft(idx);
             var r = GetRight(idx);
 
             var largestIdx = idx;
 
-            if (l <= _count && _data[l] > _data[idx])
+            if (l < _count && _data[l] > _data[idx])
                 largestIdx = l;
 
-            if (r <= _count && _data[r] > _data[largestIdx])
+            if (r < _count && _data[r] > _data[largestIdx])
                 largestIdx = r;
 
             if (largestIdx != idx)
@@ -53,7 +60,7 @@ namespace queue.heaps
                 _data[largestIdx] = newData;
                 _data[idx] = largestData;
 
-                MaxHeapify(largestData);
+                MaxHeapify(largestIdx);
             }
         }
 

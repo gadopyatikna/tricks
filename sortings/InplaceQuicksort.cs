@@ -1,5 +1,5 @@
 ﻿using System;
-namespace tricks.singlethreaded
+namespace tricks.sortings
 {
     public class InplaceQuicksort : SortBase
     {

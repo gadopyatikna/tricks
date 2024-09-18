@@ -6,7 +6,9 @@ namespace heaps
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var h = new Heap(new int[] { -1, 4, 5, 2, 7, 1 });
+            h.BuildMaxHeap();
+            Console.WriteLine(h._data);
         }
     }
 }

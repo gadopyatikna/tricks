@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace queue.@lock
+namespace locks
 {
     public class MyLock
     {
