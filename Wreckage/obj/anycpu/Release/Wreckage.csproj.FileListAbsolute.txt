@@ -1,3 +1,0 @@
-/Users/dunno/Projects/tricks/Wreckage/bin/Release/Wreckage.exe
-/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Release/Wreckage.csproj.CoreCompileInputs.cache
-/Users/dunno/Projects/tricks/Wreckage/obj/anycpu/Release/Wreckage.exe
